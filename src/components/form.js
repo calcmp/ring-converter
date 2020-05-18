@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Form = ({ handleChange, measurements, selectedType }) => {
+const Form = ({ handleChange, typeObj, measurements, selectedType }) => {
   const classes = useStyles();
 
   return (
@@ -29,16 +29,17 @@ const Form = ({ handleChange, measurements, selectedType }) => {
       <Select
         labelId="demo-simple-select-outlined-label"
         id="demo-simple-select-outlined"
-        value={measurements}
+        value={measurements.selectedType}
         onChange={handleChange}
         label={selectedType}
       >
-        <MenuItem value="">
-          <em>None</em>
-        </MenuItem>
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        {Object.entries(typeObj).map((val) => {
+          return (
+            <MenuItem key={val[0]} value={val[0]}>
+              {val[1]}
+            </MenuItem>
+          );
+        })}
       </Select>
     </FormControl>
   );

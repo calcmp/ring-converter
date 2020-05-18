@@ -3,14 +3,30 @@ import "./App.css";
 
 import Form from "./components/form";
 import Radio from "./components/radio";
+import Results from "./components/results";
 
 function App() {
   const [measurements, measurementsSet] = useState({});
-  const [selectedType, selectedTypeSet] = useState("idMillis");
+  const [typeObj, typeObjSet] = useState({});
+  const [selectedType, selectedTypeSet] = useState("British");
 
   useEffect(() => {
-    getValues();
+    getType();
   }, []);
+
+  useEffect(() => {
+    getType(selectedType);
+  }, [selectedType]);
+
+  const getType = async (value = selectedType) => {
+    let response = await fetch("http://localhost:8081/api/map", {
+      method: "POST",
+      body: JSON.stringify({ input: value }),
+    });
+    let json = await response.json();
+    let obj = JSON.parse(json);
+    typeObjSet(obj);
+  };
 
   const getValues = async (value) => {
     let response = await fetch("http://localhost:8081/api/convert", {
@@ -23,12 +39,10 @@ function App() {
   };
 
   const handleFormValueChange = (event) => {
-    console.log(event.target.value);
     getValues(event.target.value);
   };
 
   const handleRadioButtonChange = (event) => {
-    console.log(event.target.value);
     selectedTypeSet(event.target.value);
   };
 
@@ -41,9 +55,11 @@ function App() {
         />
         <Form
           handleChange={handleFormValueChange}
+          typeObj={typeObj}
           measurements={measurements}
           selectedType={selectedType}
         />
+        <Results measurements={measurements} />
       </header>
     </div>
   );
