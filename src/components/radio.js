@@ -19,24 +19,24 @@ const RadioComponent = ({ handleChange, selectedType }) => {
         onChange={handleChange}
       >
         <FormControlLabel
-          value="DiamInch"
+          value="Diameter (inch)"
           control={<Radio />}
-          label="Inside Diamater (inches)"
+          label="Inside Diameter (inch)"
         />
         <FormControlLabel
-          value="DiamMM"
+          value="Diameter (mm)"
           control={<Radio />}
           label="Inside Diameter (mm)"
         />
         <FormControlLabel
-          value="CircInch"
+          value="Circumference (inch)"
           control={<Radio />}
-          label="Inside Circumfrance (inches)"
+          label="Inside Circumference (inch)"
         />
         <FormControlLabel
-          value="CircMM"
+          value="Circumference (mm)"
           control={<Radio />}
-          label="Inside Circumfrance (mm)"
+          label="Inside Circumference (mm)"
         />
         <FormControlLabel value="British" control={<Radio />} label="British" />
         <FormControlLabel value="USA" control={<Radio />} label="USA" />

@@ -8,7 +8,7 @@ import Results from "./components/results";
 function App() {
   const [measurements, measurementsSet] = useState({});
   const [typeObj, typeObjSet] = useState({});
-  const [selectedType, selectedTypeSet] = useState("British");
+  const [selectedType, selectedTypeSet] = useState("Diameter (mm)");
 
   useEffect(() => {
     getType();

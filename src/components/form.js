@@ -11,7 +11,7 @@ import {
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: 160,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -22,13 +22,14 @@ const Form = ({ handleChange, typeObj, measurements, selectedType }) => {
   const classes = useStyles();
 
   return (
-    <FormControl variant="outlined" className={classes.formControl}>
-      <InputLabel id="demo-simple-select-outlined-label">
+    <FormControl className={classes.formControl}>
+      <InputLabel shrink id="demo-simple-select-placeholder-label-label">
         {selectedType}
       </InputLabel>
       <Select
-        labelId="demo-simple-select-outlined-label"
-        id="demo-simple-select-outlined"
+        labelId="demo-simple-select-placeholder-label-label"
+        id="demo-simple-select-placeholder-label"
+        defaultValue={20}
         value={measurements.selectedType}
         onChange={handleChange}
         label={selectedType}
