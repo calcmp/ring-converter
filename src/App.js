@@ -1,64 +1,49 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import {
-  Select,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  makeStyles,
-} from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-}));
+import Form from "./components/form";
+import Radio from "./components/radio";
 
 function App() {
-  const classes = useStyles();
-  const [age, setAge] = useState("");
+  const [measurements, measurementsSet] = useState({});
+  const [selectedType, selectedTypeSet] = useState("idMillis");
 
   useEffect(() => {
     getValues();
   }, []);
 
-  const getValues = async () => {
+  const getValues = async (value) => {
     let response = await fetch("http://localhost:8081/api/convert", {
       method: "POST",
-      body: JSON.stringify({ input: 44 }),
+      body: JSON.stringify({ input: value }),
     });
     let json = await response.json();
     console.log(json);
+    measurementsSet(json);
   };
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const handleFormValueChange = (event) => {
+    console.log(event.target.value);
+    getValues(event.target.value);
+  };
+
+  const handleRadioButtonChange = (event) => {
+    console.log(event.target.value);
+    selectedTypeSet(event.target.value);
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <FormControl variant="outlined" className={classes.formControl}>
-          <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
-          <Select
-            labelId="demo-simple-select-outlined-label"
-            id="demo-simple-select-outlined"
-            value={age}
-            onChange={handleChange}
-            label="Age"
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>
+        <Radio
+          handleChange={handleRadioButtonChange}
+          selectedType={selectedType}
+        />
+        <Form
+          handleChange={handleFormValueChange}
+          measurements={measurements}
+          selectedType={selectedType}
+        />
       </header>
     </div>
   );
