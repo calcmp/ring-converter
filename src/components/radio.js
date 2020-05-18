@@ -6,12 +6,23 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
+  makeStyles,
 } from "@material-ui/core";
 
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    minWidth: 160,
+  },
+  label: {
+    marginBottom: -6,
+  },
+}));
+
 const RadioComponent = ({ handleChange, selectedType }) => {
+  const classes = useStyles();
+
   return (
-    <FormControl component="fieldset">
-      <FormLabel component="legend">Type</FormLabel>
+    <FormControl component="fieldset" className={classes.formControl}>
       <RadioGroup
         aria-label="type"
         name="type"
@@ -19,35 +30,65 @@ const RadioComponent = ({ handleChange, selectedType }) => {
         onChange={handleChange}
       >
         <FormControlLabel
+          className={classes.label}
           value="Diameter (inch)"
           control={<Radio />}
-          label="Inside Diameter (inch)"
+          label="Diameter (inch)"
         />
         <FormControlLabel
+          className={classes.label}
           value="Diameter (mm)"
           control={<Radio />}
-          label="Inside Diameter (mm)"
+          label="Diameter (mm)"
         />
         <FormControlLabel
+          className={classes.label}
           value="Circumference (inch)"
           control={<Radio />}
-          label="Inside Circumference (inch)"
+          label="Circumference (inch)"
         />
         <FormControlLabel
+          className={classes.label}
           value="Circumference (mm)"
           control={<Radio />}
-          label="Inside Circumference (mm)"
+          label="Circumference (mm)"
         />
-        <FormControlLabel value="British" control={<Radio />} label="British" />
-        <FormControlLabel value="USA" control={<Radio />} label="USA" />
-        <FormControlLabel value="French" control={<Radio />} label="French" />
-        <FormControlLabel value="German" control={<Radio />} label="German" />
         <FormControlLabel
+          className={classes.label}
+          value="British"
+          control={<Radio />}
+          label="British"
+        />
+        <FormControlLabel
+          className={classes.label}
+          value="USA"
+          control={<Radio />}
+          label="USA"
+        />
+        <FormControlLabel
+          className={classes.label}
+          value="French"
+          control={<Radio />}
+          label="French"
+        />
+        <FormControlLabel
+          className={classes.label}
+          value="German"
+          control={<Radio />}
+          label="German"
+        />
+        <FormControlLabel
+          className={classes.label}
           value="Japanese"
           control={<Radio />}
           label="Japanese"
         />
-        <FormControlLabel value="Swiss" control={<Radio />} label="Swiss" />
+        <FormControlLabel
+          className={classes.label}
+          value="Swiss"
+          control={<Radio />}
+          label="Swiss"
+        />
       </RadioGroup>
     </FormControl>
   );

@@ -12,6 +12,7 @@ function App() {
 
   useEffect(() => {
     getType();
+    getValues();
   }, []);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ function App() {
     typeObjSet(obj);
   };
 
-  const getValues = async (value) => {
+  const getValues = async (value = "20") => {
     let response = await fetch("http://localhost:8081/api/convert", {
       method: "POST",
       body: JSON.stringify({ input: value }),
@@ -49,6 +50,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>Ring Size Converter</h1>
+      </header>
+
+      <div className="App-body">
         <Radio
           handleChange={handleRadioButtonChange}
           selectedType={selectedType}
@@ -60,7 +65,7 @@ function App() {
           selectedType={selectedType}
         />
         <Results measurements={measurements} />
-      </header>
+      </div>
     </div>
   );
 }
