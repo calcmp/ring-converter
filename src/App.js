@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
-
-import Form from "./components/form";
-import Radio from "./components/radio";
-import Results from "./components/results";
+import Drawer from "./components/drawer";
 
 function App() {
   const [measurements, measurementsSet] = useState({});
@@ -48,25 +44,13 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Ring Size Converter</h1>
-      </header>
-
-      <div className="App-body">
-        <Radio
-          handleChange={handleRadioButtonChange}
-          selectedType={selectedType}
-        />
-        <Form
-          handleChange={handleFormValueChange}
-          typeObj={typeObj}
-          measurements={measurements}
-          selectedType={selectedType}
-        />
-        <Results measurements={measurements} />
-      </div>
-    </div>
+    <Drawer
+      handleRadioButtonChange={handleRadioButtonChange}
+      handleFormValueChange={handleFormValueChange}
+      typeObj={typeObj}
+      measurements={measurements}
+      selectedType={selectedType}
+    />
   );
 }
 

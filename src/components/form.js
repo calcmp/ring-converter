@@ -10,13 +10,18 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1),
-    minWidth: 160,
-    marginTop: 50,
+    //margin: theme.spacing(1),
+    //minWidth: 160,
+    //marginTop: 50,
   },
 }));
 
-const Form = ({ handleChange, typeObj, measurements, selectedType }) => {
+const Form = ({
+  handleFormValueChange,
+  typeObj,
+  measurements,
+  selectedType,
+}) => {
   const classes = useStyles();
 
   return (
@@ -29,7 +34,7 @@ const Form = ({ handleChange, typeObj, measurements, selectedType }) => {
         id="demo-simple-select-placeholder-label"
         defaultValue={20}
         value={measurements.selectedType}
-        onChange={handleChange}
+        onChange={handleFormValueChange}
         label={selectedType}
       >
         {Object.entries(typeObj).map((val) => {

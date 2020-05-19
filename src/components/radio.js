@@ -2,7 +2,6 @@ import React from "react";
 
 import {
   FormControl,
-  FormLabel,
   RadioGroup,
   FormControlLabel,
   Radio,
@@ -14,11 +13,11 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 160,
   },
   label: {
-    marginBottom: -6,
+    marginBottom: 14,
   },
 }));
 
-const RadioComponent = ({ handleChange, selectedType }) => {
+const RadioComponent = ({ handleRadioButtonChange, selectedType }) => {
   const classes = useStyles();
 
   return (
@@ -27,7 +26,7 @@ const RadioComponent = ({ handleChange, selectedType }) => {
         aria-label="type"
         name="type"
         value={selectedType}
-        onChange={handleChange}
+        onChange={handleRadioButtonChange}
       >
         <FormControlLabel
           className={classes.label}
