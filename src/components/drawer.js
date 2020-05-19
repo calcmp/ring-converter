@@ -25,7 +25,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    backgroundColor: "hsl(40, 23%, 97%)",
+    backgroundColor: "hsl(43, 13%, 90%)",
   },
   drawer: {
     [theme.breakpoints.up("sm")]: {
@@ -124,7 +124,11 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography style={{ fontWeight: 600 }} variant="h6" noWrap>
+          <Typography
+            style={{ fontWeight: 600, color: "hsl(360, 33%, 95%)" }}
+            variant="h6"
+            noWrap
+          >
             Ring Size Converter
           </Typography>
         </Toolbar>
