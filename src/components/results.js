@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core";
+import { Typography, makeStyles, Divider } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
-    marginTop: 30,
     width: "100%",
     justifyContent: "center",
   },
   label: {
     textAlign: "left",
-    padding: "0 20px",
+    padding: "0 10px",
+    color: "hsl(41, 9%, 35%)",
   },
   value: {
     float: "right",
-    padding: "0 20px",
+    padding: "0 10px",
+    color: "hsl(360, 79%, 32%)",
   },
 }));
 
@@ -37,12 +38,36 @@ const Results = ({ measurements }) => {
     <section className={classes.container}>
       <div className={classes.label}>
         {types.map((val) => {
-          return <p key={val}>{val}</p>;
+          return (
+            <Typography
+              style={{
+                padding: "0 10px",
+                margin: "35px 0",
+                fontSize: 18,
+              }}
+              key={val}
+            >
+              {val}
+            </Typography>
+          );
         })}
       </div>
+
       <div className={classes.value}>
         {Object.values(measurements).map((val, index) => {
-          return <p key={index}>{val}</p>;
+          return (
+            <Typography
+              style={{
+                padding: "0 10px",
+                margin: "35px 0",
+                fontSize: 18,
+                fontWeight: 600,
+              }}
+              key={index}
+            >
+              {val}
+            </Typography>
+          );
         })}
       </div>
     </section>

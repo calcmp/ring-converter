@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import {
   AppBar,
-  CssBaseline,
   Divider,
   Drawer,
   Hidden,
@@ -113,7 +112,6 @@ function ResponsiveDrawer(props) {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar style={{ justifyContent: "center" }}>
           <IconButton
@@ -174,13 +172,13 @@ function ResponsiveDrawer(props) {
           the dropown menu and check the conversions you would like.
         </Typography>
         <Typography style={{ color: "hsl(37, 11%, 28%)" }} paragraph>
-          If you want to find your measurement manually, yourself. Wrap a thin
-          piece of paper or string around your finger to a snug fit. Mark where
-          the paper or string overlaps and measure the length on a ruler. This
-          measurement is your circumference in millimetres or inches. You can
-          use this measurement to convert it to other measurements.
+          If you want to find your measurement yourself. Wrap a thin piece of
+          paper or string around your finger to a snug fit. Mark where the paper
+          or string overlaps and measure the length on a ruler. This measurement
+          is your circumference in millimetres or inches. You can use this
+          measurement to convert it to other measurements.
         </Typography>
-        <Divider />
+        <Divider style={{ marginTop: 20 }} />
         <Form
           handleFormValueChange={handleFormValueChange}
           typeObj={typeObj}

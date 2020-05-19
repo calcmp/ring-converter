@@ -6,14 +6,17 @@ import {
   InputLabel,
   MenuItem,
   makeStyles,
-  Divider,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   container: {
+    marginTop: 10,
     display: "flex",
-
     textAlign: "center",
+    justifyContent: "center",
+    [theme.breakpoints.up("sm")]: {
+      justifyContent: "flex-start",
+    },
   },
   formControl: {
     margin: theme.spacing(1),
@@ -47,7 +50,7 @@ const Form = ({
           value={measurements.selectedType}
           onChange={handleFormValueChange}
           label={selectedType}
-          style={{ fontSize: 18, color: "hsl(185, 84%, 25%)" }}
+          style={{ fontSize: 18, color: "hsl(184, 91%, 17%)" }}
         >
           {Object.entries(typeObj).map((val) => {
             return (
