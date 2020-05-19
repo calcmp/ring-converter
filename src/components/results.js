@@ -41,8 +41,8 @@ const Results = ({ measurements }) => {
         })}
       </div>
       <div className={classes.value}>
-        {Object.values(measurements).map((val) => {
-          return <p key={val}>{val}</p>;
+        {Object.values(measurements).map((val, index) => {
+          return <p key={index}>{val}</p>;
         })}
       </div>
     </section>

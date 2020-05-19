@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   radio: {
     color: "hsl(39, 11%, 69%)",
     "&$checked": {
-      color: "hsl(36, 77%, 49%)",
+      color: "hsl(29, 80%, 44%)",
     },
   },
   checked: {},
