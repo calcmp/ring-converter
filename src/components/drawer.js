@@ -25,6 +25,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    backgroundColor: "hsl(40, 23%, 97%)",
   },
   drawer: {
     [theme.breakpoints.up("sm")]: {
@@ -33,12 +34,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBar: {
+    backgroundColor: "hsl(360, 79%, 32%)",
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
     },
   },
   menuButton: {
+    position: "absolute",
+    left: 20,
     marginRight: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {
       display: "none",
@@ -49,9 +53,12 @@ const useStyles = makeStyles((theme) => ({
     padding: "0 30px",
   },
   // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
+  toolbar: {
+    height: 64,
+  },
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor: "hsl(40, 23%, 97%)",
   },
   content: {
     flexGrow: 1,
@@ -79,7 +86,16 @@ function ResponsiveDrawer(props) {
   const drawer = (
     <div>
       <div className={classes.toolbar}>
-        <Typography>Measurement</Typography>
+        <Typography
+          style={{
+            padding: "20px 60px",
+            fontSize: 18,
+            fontWeight: 600,
+            color: "hsl(41, 8%, 48%)",
+          }}
+        >
+          Measurement
+        </Typography>
       </div>
       <Divider />
       <List className={classes.list}>
@@ -98,7 +114,7 @@ function ResponsiveDrawer(props) {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar style={{ justifyContent: "center" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -108,7 +124,7 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography style={{ fontWeight: 600 }} variant="h6" noWrap>
             Ring Size Converter
           </Typography>
         </Toolbar>

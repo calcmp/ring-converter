@@ -6,14 +6,27 @@ import {
   FormControlLabel,
   Radio,
   makeStyles,
+  Divider,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
     minWidth: 160,
   },
-  label: {
-    marginBottom: 14,
+  label: {},
+  radio: {
+    color: "hsl(39, 11%, 69%)",
+    "&$checked": {
+      color: "hsl(36, 77%, 49%)",
+    },
+  },
+  checked: {},
+  checkboxLabel: {
+    color: "hsl(41, 8%, 48%)",
+    fontSize: 17,
+    marginLeft: 6,
+    marginBottom: 18,
+    marginTop: 18,
   },
 }));
 
@@ -29,63 +42,132 @@ const RadioComponent = ({ handleRadioButtonChange, selectedType }) => {
         onChange={handleRadioButtonChange}
       >
         <FormControlLabel
-          className={classes.label}
+          classes={{
+            label: classes.checkboxLabel,
+          }}
           value="Diameter (inch)"
-          control={<Radio />}
+          control={
+            <Radio
+              classes={{ root: classes.radio, checked: classes.checked }}
+            />
+          }
           label="Diameter (inch)"
         />
+        <Divider />
         <FormControlLabel
-          className={classes.label}
+          classes={{
+            label: classes.checkboxLabel,
+          }}
           value="Diameter (mm)"
-          control={<Radio />}
+          control={
+            <Radio
+              classes={{ root: classes.radio, checked: classes.checked }}
+            />
+          }
           label="Diameter (mm)"
         />
+        <Divider />
         <FormControlLabel
-          className={classes.label}
+          classes={{
+            label: classes.checkboxLabel,
+          }}
           value="Circumference (inch)"
-          control={<Radio />}
+          control={
+            <Radio
+              classes={{ root: classes.radio, checked: classes.checked }}
+            />
+          }
           label="Circumference (inch)"
         />
+        <Divider />
         <FormControlLabel
-          className={classes.label}
+          classes={{
+            label: classes.checkboxLabel,
+          }}
           value="Circumference (mm)"
-          control={<Radio />}
+          control={
+            <Radio
+              classes={{ root: classes.radio, checked: classes.checked }}
+            />
+          }
           label="Circumference (mm)"
         />
+        <Divider />
         <FormControlLabel
-          className={classes.label}
+          classes={{
+            label: classes.checkboxLabel,
+          }}
           value="British"
-          control={<Radio />}
+          control={
+            <Radio
+              classes={{ root: classes.radio, checked: classes.checked }}
+            />
+          }
           label="British"
         />
+        <Divider />
         <FormControlLabel
-          className={classes.label}
+          classes={{
+            label: classes.checkboxLabel,
+          }}
           value="USA"
-          control={<Radio />}
+          control={
+            <Radio
+              classes={{ root: classes.radio, checked: classes.checked }}
+            />
+          }
           label="USA"
         />
+        <Divider />
         <FormControlLabel
-          className={classes.label}
+          classes={{
+            label: classes.checkboxLabel,
+          }}
           value="French"
-          control={<Radio />}
+          control={
+            <Radio
+              classes={{ root: classes.radio, checked: classes.checked }}
+            />
+          }
           label="French"
         />
+        <Divider />
         <FormControlLabel
-          className={classes.label}
+          classes={{
+            label: classes.checkboxLabel,
+          }}
           value="German"
-          control={<Radio />}
+          control={
+            <Radio
+              classes={{ root: classes.radio, checked: classes.checked }}
+            />
+          }
           label="German"
         />
+        <Divider />
         <FormControlLabel
-          className={classes.label}
+          classes={{
+            label: classes.checkboxLabel,
+          }}
           value="Japanese"
-          control={<Radio />}
+          control={
+            <Radio
+              classes={{ root: classes.radio, checked: classes.checked }}
+            />
+          }
           label="Japanese"
         />
+        <Divider />
         <FormControlLabel
-          className={classes.label}
+          classes={{
+            label: classes.checkboxLabel,
+          }}
           value="Swiss"
-          control={<Radio />}
+          control={
+            <Radio
+              classes={{ root: classes.radio, checked: classes.checked }}
+            />
+          }
           label="Swiss"
         />
       </RadioGroup>
