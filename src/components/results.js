@@ -6,6 +6,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     width: "100%",
     justifyContent: "center",
+    marginLeft: "0px",
+    [theme.breakpoints.up("md")]: {
+      marginLeft: "-160px",
+    },
   },
   label: {
     textAlign: "left",

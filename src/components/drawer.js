@@ -62,7 +62,14 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
+  },
+  lowerContent: {
+    display: "flex",
+    flexDirection: "column",
+    [theme.breakpoints.up("md")]: {
+      flexDirection: "row",
+    },
   },
 }));
 
@@ -179,13 +186,15 @@ function ResponsiveDrawer(props) {
           measurement to convert it to other measurements.
         </Typography>
         <Divider style={{ marginTop: 20 }} />
-        <Form
-          handleFormValueChange={handleFormValueChange}
-          typeObj={typeObj}
-          measurements={measurements}
-          selectedType={selectedType}
-        />
-        <Results measurements={measurements} />
+        <div className={classes.lowerContent}>
+          <Form
+            handleFormValueChange={handleFormValueChange}
+            typeObj={typeObj}
+            measurements={measurements}
+            selectedType={selectedType}
+          />
+          <Results measurements={measurements} />
+        </div>
       </main>
     </div>
   );
