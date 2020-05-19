@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography, makeStyles, Divider } from "@material-ui/core";
+import { Typography, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   container: {
