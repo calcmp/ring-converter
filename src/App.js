@@ -16,7 +16,7 @@ function App() {
   }, [selectedType]);
 
   const getType = async (value = selectedType) => {
-    let response = await fetch("https://callumpenny.dev:8081/api/map", {
+    let response = await fetch("https://callumpenny.dev/api/map", {
       method: "POST",
       body: JSON.stringify({ input: value }),
     });
@@ -26,7 +26,7 @@ function App() {
   };
 
   const getValues = async (value = "20") => {
-    let response = await fetch("https://callumpenny.dev:8081/api/convert", {
+    let response = await fetch("https://callumpenny.dev/api/convert", {
       method: "POST",
       body: JSON.stringify({ input: value }),
     });
