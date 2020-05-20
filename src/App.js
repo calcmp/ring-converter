@@ -31,7 +31,7 @@ function App() {
       body: JSON.stringify({ input: value }),
     });
     let json = await response.json();
-    console.log(json);
+
     measurementsSet(json);
   };
 
