@@ -175,8 +175,9 @@ function ResponsiveDrawer(props) {
         <div className={classes.toolbar} />
         <Typography style={{ color: "hsl(37, 11%, 28%)" }} paragraph>
           Find your ring size in all different measurements. Select your
-          measurement type in the sidebar on the left, select the measurement in
-          the dropown menu and check the conversions you would like.
+          measurement type in the sidebar on the left, select the nearest
+          measurement in the dropown menu and check the conversions you would
+          like.
         </Typography>
         <Typography style={{ color: "hsl(37, 11%, 28%)" }} paragraph>
           If you want to find your measurement yourself. Wrap a thin piece of

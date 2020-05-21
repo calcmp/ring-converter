@@ -27,11 +27,11 @@ const Results = ({ measurements }) => {
   const classes = useStyles();
   const [types, typesSet] = useState([
     "Diameter (inch)",
-    "Diameter (mm)",
     "Circumference (inch)",
+    "Diameter (mm)",
     "Circumference (mm)",
-    "British/Australia",
     "USA/Canada",
+    "British/Australia",
     "French",
     "German",
     "Japanese",
